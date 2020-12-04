@@ -59,5 +59,13 @@ namespace CSITDemo.Controllers
             var model = _service.GetStudentById(id);
             return View(model);
         }
+
+        [HttpPost]
+        public IActionResult Edit(StudentModel model)
+        {
+
+            _service.EditStudent(model);
+            return RedirectToAction("Index");
+        }
     }
 }

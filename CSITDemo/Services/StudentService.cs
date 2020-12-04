@@ -74,5 +74,18 @@ namespace CSITDemo.Services
             _dbContext.Students.Add(dbStudent);
             _dbContext.SaveChanges();
         }
+
+        public void EditStudent(StudentModel student)
+        {
+            var dbStudent = _dbContext.Students.FirstOrDefault(x=>x.Id == student.Id);
+            if (dbStudent != null)
+            {
+                dbStudent.Name = student.Name;
+                dbStudent.Address = student.Address;
+                dbStudent.Email = student.Email;
+                _dbContext.Students.Update(dbStudent);
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }

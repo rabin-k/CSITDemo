@@ -15,5 +15,7 @@ namespace CSITDemo.Services
         Task<int> SendEmail(List<StudentModel> model);
 
         void AddStudent(StudentModel student);
+
+        void EditStudent(StudentModel student);
     }
 }
