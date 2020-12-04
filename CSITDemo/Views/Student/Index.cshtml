@@ -1,0 +1,25 @@
+﻿@model List<CSITDemo.Models.StudentModel>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Address</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var student in Model)
+        {
+            <tr>
+                <td>@student.Name</td>
+                <td>@student.Address</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("Edit", new {Id=student.Id })">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

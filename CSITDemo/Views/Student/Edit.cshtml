@@ -1,0 +1,20 @@
+﻿@model CSITDemo.Models.StudentModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>StudentModel</h4>
+<hr />
+
+@await Html.PartialAsync("_CreateUpdateForm", Model)
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
