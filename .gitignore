@@ -1,0 +1,7 @@
+packages
+web.config
+.vs/
+*.suo
+*.user
+**/obj/**
+**/bin/**
