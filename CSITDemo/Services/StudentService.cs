@@ -36,13 +36,28 @@ namespace CSITDemo.Services
             //}
             //return returnData;
 
-            return _dbContext.Students.Select(x => new StudentModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Address = x.Address,
-                Email = x.Email
-            }).ToList();
+            var result = from s in _dbContext.Students
+                         join c in _dbContext.Classes on s.Class equals c.Id
+                         //where s.IsActive == true && s.IsDeleted == false
+                         select new StudentModel
+                         {
+                             Id = s.Id,
+                             Name = s.Name,
+                             Address = s.Address,
+                             Email = s.Email,
+                             ClassName = c.Name,
+                             SelectedClass = s.Class
+                         };
+
+
+            return result.ToList();
+            //    _dbContext.Students.Select(x => new StudentModel
+            //{
+            //    Id = x.Id,
+            //    Name = x.Name,
+            //    Address = x.Address,
+            //    Email = x.Email
+            //}).ToList();
         }
 
         public StudentModel GetStudentById(int id)
@@ -65,10 +80,12 @@ namespace CSITDemo.Services
         {
             var dbStudent = new Student
             {
-                Id = student.Id,
                 Name = student.Name,
                 Address = student.Address,
-                Email = student.Email
+                Email = student.Email,
+                Class = student.SelectedClass,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
             };
 
             _dbContext.Students.Add(dbStudent);

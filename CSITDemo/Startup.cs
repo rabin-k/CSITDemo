@@ -31,6 +31,7 @@ namespace CSITDemo
             });
 
             services.AddScoped<IStudentService, StudentOracleService>();
+            services.AddScoped<IClassService, ClassService>();
 
             services.AddControllersWithViews();
         }

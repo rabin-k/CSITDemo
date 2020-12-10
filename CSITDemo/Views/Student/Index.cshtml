@@ -5,6 +5,7 @@
         <tr>
             <td>Name</td>
             <td>Address</td>
+            <td>Class</td>
             <td>Actions</td>
         </tr>
     </thead>
@@ -14,6 +15,7 @@
             <tr>
                 <td>@student.Name</td>
                 <td>@student.Address</td>
+                <td>@student.ClassName</td>
                 <td>
                     <a class="btn btn-primary" href="@Url.Action("Edit", new {Id=student.Id })">Edit</a>
                 </td>

@@ -10,10 +10,12 @@ namespace CSITDemo
         }
 
         public DbSet<Student> Students { get; set; }
+        public DbSet<Class> Classes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>().ToTable("Student");
+            modelBuilder.Entity<Class>().ToTable("Class");
         }
     }
 }
